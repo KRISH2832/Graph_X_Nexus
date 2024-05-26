@@ -23,8 +23,8 @@ This tool allows users to query subgraph activity on the Polygon Network, provid
 1. **Clone the Repository**
 
     ```bash
-    git clone https://github.com/KRISH2832/Graph_X_Nexus.git
-    cd Graph_X_Nexus
+    git clone https://github.com/yourusername/polygon-subgraph-query-tool.git
+    cd polygon-subgraph-query-tool
     ```
 
 2. **Install Dependencies**
@@ -43,17 +43,55 @@ This tool allows users to query subgraph activity on the Polygon Network, provid
 
 ## Usage
 
-1. **Run the Application**
+1. **Generate Code**
+
+    Generate the necessary code from the GraphQL schema:
 
     ```bash
-    npm start
+    npm run codegen
     ```
 
-2. **Access the Interface**
+2. **Build the Project**
+
+    Build the project:
+
+    ```bash
+    npm run build
+    ```
+
+3. **Deploy the Subgraph**
+
+    Depending on your deployment target, you can deploy either to a local environment or to The Graph's hosted service.
+
+    - **Deploy to The Graph Studio**
+
+        If you are deploying to The Graph Studio, use:
+
+        ```bash
+        npm run deploy
+        ```
+
+    - **Deploy to Local Environment**
+
+        If you prefer to deploy to a local environment, you'll need to set up a local Graph node and IPFS node. Once those are running, use the following commands:
+
+        - Create the subgraph:
+
+            ```bash
+            npm run create-local
+            ```
+
+        - Deploy the subgraph locally:
+
+            ```bash
+            npm run deploy-local
+            ```
+
+4. **Access the Interface**
 
     Open your web browser and navigate to `http://localhost:3000`. You will see the main dashboard where you can query and visualize the Matic-related data.
 
-3. **Custom Queries**
+5. **Custom Queries**
 
     To perform custom queries, navigate to the 'Custom Query' section in the interface. You can write and execute GraphQL queries to fetch specific data.
 
@@ -102,6 +140,18 @@ This tool allows users to query subgraph activity on the Polygon Network, provid
     npm test
     ```
 
+### Summary of Commands
+
+Here is a summary of the commands based on the provided `package.json`:
+
+- Install dependencies: `npm install`
+- Generate code: `npm run codegen`
+- Build the project: `npm run build`
+- Deploy to The Graph Studio: `npm run deploy`
+- Create local subgraph: `npm run create-local`
+- Deploy locally: `npm run deploy-local`
+- Run tests: `npm test`
+
 ## Contributing
 
 Contributions are welcome! Please fork the repository and submit a pull request with your changes. Ensure that your code adheres to the project's coding standards and includes appropriate tests.
@@ -109,7 +159,6 @@ Contributions are welcome! Please fork the repository and submit a pull request 
 ## License
 
 This project is licensed under the MIT License. See the `LICENSE` file for more information.
-
 
 ---
 
