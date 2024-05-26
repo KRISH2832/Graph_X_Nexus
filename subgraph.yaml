@@ -1,0 +1,39 @@
+specVersion: 0.0.5
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: Contract
+    network: mainnet
+    source:
+      address: "0x7d1afa7b718fb893db30a3abc0cfc608aacfebb0"
+      abi: Contract
+      startBlock: 7605604
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - Paused
+        - Unpaused
+        - PauserAdded
+        - PauserRemoved
+        - Transfer
+        - Approval
+      abis:
+        - name: Contract
+          file: ./abis/Contract.json
+      eventHandlers:
+        - event: Paused(address)
+          handler: handlePaused
+        - event: Unpaused(address)
+          handler: handleUnpaused
+        - event: PauserAdded(indexed address)
+          handler: handlePauserAdded
+        - event: PauserRemoved(indexed address)
+          handler: handlePauserRemoved
+        - event: Transfer(indexed address,indexed address,uint256)
+          handler: handleTransfer
+        - event: Approval(indexed address,indexed address,uint256)
+          handler: handleApproval
+      file: ./src/contract.ts
